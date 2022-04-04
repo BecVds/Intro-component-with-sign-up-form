@@ -1,35 +1,35 @@
-*{
+* {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     margin: 0;
 }
 
-.mainComponentContainer{
-    background-color: hsl(0, 100%, 74%);
+.mainComponentContainer {
+    background-color: #ff7a7a;
     background-image: url(./images/bg-intro-mobile.png);
     height: 100vh;
     width: 100vw;
     padding: 20px;
 }
 
-.firstContainer{
+.firstContainer {
     margin-bottom: 50px;
 }
-h1{
-    color: white;
+h1 {
+    color: #ffffff;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 20px;
     font-size: 26px;
 }
-.mainParagraph{
-    color: white;
+.mainParagraph {
+    color: #ffffff;
     font-size: 16px;
     text-align: center;
 }
-button{
+button {
     background-color: #37CC8A;
-    color: white;
+    color: #ffffff;
     text-transform: uppercase;
     width: 100%;
     border-style: none;
@@ -39,17 +39,17 @@ button{
     box-shadow: 0px 3px 0px 0px #3FB07E;
     cursor: pointer;
 }
-button:hover{
+button:hover {
     background-color: #77E2B4;
     box-shadow: 0px 3px 0px 0px #74C8A3;
 }
-form{
-    background-color: white;
+form {
+    background-color: #ffffff;
     border-radius: 10px;
     margin-top: 20px;
     padding: 20px;
 }
-.singleInputField{
+.singleInputField {
     border-style: none;
     border-radius: 5px;
     margin-bottom: 15px;
@@ -57,12 +57,12 @@ form{
     padding: 0;
     position: relative;
 }
-.alertIcon{
+.alertIcon {
     position: absolute;    
     top: 25%;
     right: 25px;
 }
-input{
+input {
     border: 2px solid;
     border-color: #EFEFEF;
     padding-left: 20px;
@@ -71,46 +71,46 @@ input{
     width: 100%;
     border-radius: 5px;
 }
-.inputErrorBorder{
-    border-color: hsl(0, 100%, 74%);
+.inputErrorBorder {
+    border-color: #ff7a7a;
 }
-.purpleContainer{
-    background-color: hsl(248, 32%, 49%);
+.purpleContainer {
+    background-color: #6055a5;
     border-radius: 10px;
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 15px;
-    box-shadow: 0px 7px 0px 0px hsl(0, 0%, 0%, 20%);
+    box-shadow: 0px 7px 0px 0px #00000033;
 }
-.purpleText{
+.purpleText {
     width: 70%;
     text-align: center;
-    color: white;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 400;
 }
-.boldPurpleText{
+.boldPurpleText {
     font-weight: 600;
 }
-.hidden{
+.hidden {
     display: none;
 }
-.termsText{
-    color: rgb(165, 165, 165);
+.termsText {
+    color: #a5a5a5;
     font-size: 10px;
     text-align: center;
     padding-left: 20px;
     padding-right: 20px;
 }
-.boldTermsText{
-    color: hsl(0, 100%, 74%);
+.boldTermsText {
+    color: #ff7a7a;
     font-weight: 700;
 }
-.alertText{
+.alertText {
     text-align: right;
     font-size: 10px;
-    color: hsl(0, 100%, 74%);
+    color: #ff7a7a;
     margin-top: -10px;
     margin-bottom: 15px;
 }
