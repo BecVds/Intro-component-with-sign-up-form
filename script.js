@@ -1,60 +1,83 @@
 const CLAIM_BUTTON = document.getElementById("submitBtn");
 
-const INPUT_PASSWORD = document.getElementById("password");
-const INPUT_EMAIL = document.getElementById("email");
-const INPUT_LNAME = document.getElementById("lName");
-const INPUT_FNAME = document.getElementById("fName");
+const PASSWORD_ERROR_MESSAGE = document.getElementById("password");
+const EMAIL_ERROR_MESSAGE = document.getElementById("email");
+const LNAME_ERROR_MESSAGE = document.getElementById("lName");
+const FNAME_ERROR_MESSAGE = document.getElementById("fName");
 
-const ERROR_PASSWORD = document.getElementById("passwordError");
-const ERROR_EMAIL = document.getElementById("emailError");
-const ERROR_LNAME = document.getElementById("lnameError");
-const ERROR_FNAME = document.getElementById("fnameError");
-
-const BORDER_PASSWORD = document.getElementById("passwordBorder");
-const BORDER_EMAIL = document.getElementById("emailBorder");
-const BORDER_LNAME = document.getElementById("lnameBorder");
-const BORDER_FNAME = document.getElementById("fnameBorder");
+const PASSWORD_INPUT = document.getElementById("passwordBorder");
+const EMAIL_INPUT = document.getElementById("emailBorder");
+const LNAME_INPUT = document.getElementById("lnameBorder");
+const FNAME_INPUT = document.getElementById("fnameBorder");
 
 
 CLAIM_BUTTON.addEventListener("click", validate);
 
+let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 function validate(e){
     e.preventDefault();
-    INPUT_FNAME.classList.add("hidden");
-    BORDER_FNAME.classList.remove("inputErrorBorder");
-    INPUT_LNAME.classList.add("hidden");
-    BORDER_LNAME.classList.remove("inputErrorBorder");
-    INPUT_EMAIL.classList.add("hidden");
-    BORDER_EMAIL.classList.remove("inputErrorBorder");
-    INPUT_PASSWORD.classList.add("hidden");
-    BORDER_PASSWORD.classList.remove("inputErrorBorder");
+    FNAME_ERROR_MESSAGE.classList.add("hidden");
+    FNAME_INPUT.classList.remove("inputErrorBorder");
+    LNAME_ERROR_MESSAGE.classList.add("hidden");
+    LNAME_INPUT.classList.remove("inputErrorBorder");
+    EMAIL_ERROR_MESSAGE.classList.add("hidden");
+    EMAIL_INPUT.classList.remove("inputErrorBorder");
+    PASSWORD_ERROR_MESSAGE.classList.add("hidden");
+    PASSWORD_INPUT.classList.remove("inputErrorBorder");
     
-    ERROR_FNAME.classList.add("hidden");
-    ERROR_LNAME.classList.add("hidden");
-    ERROR_EMAIL.classList.add("hidden");
-    ERROR_PASSWORD.classList.add("hidden");
-    if(document.myForm.fName.value == ""){
+    let inputField = document.querySelectorAll(".alertIcon");
+    
+    inputField.forEach(alertIcon => {
+        alertIcon.remove();
+      }
+    );
+
+    firstNameInputError();
+    lastNameInputError();
+    emailInputError();
+    passwordInputError();
+}
+
+function firstNameInputError(){
+    if  (FNAME_INPUT.value === ""){
         console.log("please provide your first name");
-        INPUT_FNAME.classList.remove("hidden");
-        BORDER_FNAME.classList.add("inputErrorBorder");
-        ERROR_FNAME.classList.remove("hidden");
+        FNAME_ERROR_MESSAGE.classList.remove("hidden");
+        FNAME_INPUT.classList.add("inputErrorBorder");
+        errorIconElement(FNAME_INPUT);
     }
-    if(document.myForm.lName.value == ""){
+}
+function lastNameInputError(){
+    if (LNAME_INPUT.value === ""){
         console.log("please provide your last name");
-        INPUT_LNAME.classList.remove("hidden");
-        BORDER_LNAME.classList.add("inputErrorBorder");
-        ERROR_LNAME.classList.remove("hidden");
+        LNAME_ERROR_MESSAGE.classList.remove("hidden");
+        LNAME_INPUT.classList.add("inputErrorBorder");
+        errorIconElement(LNAME_INPUT);
     }
-    if(document.myForm.email.value == ""){
-        console.log("please provide your email");
-        INPUT_EMAIL.classList.remove("hidden");
-        BORDER_EMAIL.classList.add("inputErrorBorder");
-        ERROR_EMAIL.classList.remove("hidden");
+    
+}
+function emailInputError(){
+    if(!(EMAIL_INPUT.value.match(mailformat))){
+        console.log("please provide a correct email");
+        EMAIL_ERROR_MESSAGE.classList.remove("hidden");
+        EMAIL_INPUT.classList.add("inputErrorBorder");
+        errorIconElement(EMAIL_INPUT);
     }
-    if(document.myForm.password.value == ""){
+}
+function passwordInputError(){
+    if(PASSWORD_INPUT.value === ""){
         console.log("please provide your password");
-        INPUT_PASSWORD.classList.remove("hidden");
-        BORDER_PASSWORD.classList.add("inputErrorBorder");
-        ERROR_PASSWORD.classList.remove("hidden");
+        PASSWORD_ERROR_MESSAGE.classList.remove("hidden");
+        PASSWORD_INPUT.classList.add("inputErrorBorder");
+        errorIconElement(PASSWORD_INPUT);
     }
+}
+
+function errorIconElement(inputField){
+    let divElement = document.createElement("div");
+    divElement.classList.add("alertIcon");
+    let imageElement = document.createElement("img");
+    imageElement.src = './images/icon-error.svg';
+    divElement.appendChild(imageElement);
+    inputField.after(divElement)
 }
